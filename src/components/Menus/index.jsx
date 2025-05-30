@@ -8,11 +8,15 @@ import Select from "@mui/material/Select";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormLabel from "@mui/material/FormLabel";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import Button from "@mui/material/Button";
 import RangeLegend from "../Map/RangeLegend";
 
 export default function Menus(props) {
   const { challenges, setChallenge, challenge, colorBy, setColorBy } = props;
   const [challengeList, setChallengeList] = React.useState([]);
+  const [collapsed, setCollapsed] = React.useState(false);
 
   useEffect(() => {
     setChallengeList(
@@ -31,9 +35,17 @@ export default function Menus(props) {
         backgroundColor: "white",
         padding: "10px",
         borderRadius: "8px",
+        height: collapsed ? "30px" : "auto",
+        overflow: "hidden",
         boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
       }}
     >
+      <div style={{ width: "100%", textAlign: "right" }}>
+        <Button onClick={() => setCollapsed((prev) => !prev)}>
+          {!collapsed && <KeyboardArrowUpIcon />}
+          {collapsed && <KeyboardArrowDownIcon />}
+        </Button>
+      </div>
       <div
         style={{
           width: "300px",

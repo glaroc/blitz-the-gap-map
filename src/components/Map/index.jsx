@@ -66,7 +66,7 @@ export default function Map(props) {
     }
 
     if (thischal[0].everywhere && colorBy === "species") {
-      return "#45732a";
+      return "#30a3b9";
     }
 
     if (chal === "All challenges" && colorBy === "species") {
