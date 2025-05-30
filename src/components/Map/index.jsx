@@ -251,7 +251,6 @@ export default function Map(props) {
           map.getCanvas().style.cursor = "pointer";
         });
       });
-
       setMapp(map);
       return () => {
         map.remove();
