@@ -243,6 +243,15 @@ export default function Map(props) {
           .setHTML(html)
           .addTo(map);
       });
+      map.on("load", () => {
+        map.on("mouseenter", "counties", () => {
+          map.getCanvas().style.cursor = "crosshair";
+        });
+        map.on("mouseleave", "counties", () => {
+          map.getCanvas().style.cursor = "pointer";
+        });
+      });
+
       setMapp(map);
       return () => {
         map.remove();
