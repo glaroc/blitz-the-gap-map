@@ -33,10 +33,10 @@ export default function Map(props) {
 
   const color_challenges = (value) => {
     if (value < 1) return "#fff0";
-    if (value < 100) return "#30a3b9";
-    if (value < 400) return "#167789";
-    if (value < 600) return "#0d3d46";
-    return "#063139";
+    if (value < 100) return "#6ee4f9";
+    if (value < 400) return "#34aac0";
+    if (value < 600) return "#1a879c";
+    return "#177182";
   };
 
   const chalpal = (chal, colorBy) => {
@@ -179,7 +179,7 @@ export default function Map(props) {
                 ],
                 "fill-extrusion-base": 5,*/
                 "fill-color": chalpal(challenge, colorBy),
-                "fill-opacity": 0.3,
+                "fill-opacity": 0.4,
                 "fill-outline-color": "#ffffff",
               },
             },
@@ -234,8 +234,11 @@ export default function Map(props) {
           parseInt(e.features[0].properties.number_of_challenges) + 3
         }</b>
         <br><strong>List of challenges</strong>: <ul><li>${(
-          e.features[0].properties.challenges + everywhere_challenges.join(",")
+          e.features[0].properties.challenges +
+          "," +
+          everywhere_challenges.join(",")
         )
+          .replace("Birders, don't look up!", "Birders - don't look up!")
           .split(",")
           .join("</li><li>")}</li></b></div>`;
         new maplibregl.Popup()
